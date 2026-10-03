@@ -39,6 +39,7 @@
       outline: none;
     }
 
+    /* Layout Container */
     .container {
       width: 100%;
       max-width: 350px;
@@ -47,6 +48,7 @@
       gap: 15px;
       position: relative;
       z-index: 1;
+      transition: max-width 0.3s ease;
     }
 
     /* Header Title Style */
@@ -157,11 +159,13 @@
 
     /* Pages Navigation */
     .page {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
     .hidden {
-      display: none;
+      display: none !important;
     }
 
     .member-list {
@@ -191,6 +195,22 @@
       filter: blur(5px);
       user-select: none;
     }
+
+    /* Desktop and Laptop Screen Adjustments */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 750px;
+      }
+
+      #page1 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      #page1 .privacy-card {
+        grid-column: span 2;
+      }
+    }
   </style>
 </head>
 <body>
@@ -212,13 +232,13 @@
       </div>
 
       <!-- Community Card -->
-      <div class="card" style="margin-top: 15px;">
+      <div class="card">
         <p style="margin: 0; font-weight: 600;">Join our community!</p>
         <button class="join-btn" onclick="window.open('https://your-link-here.com', '_blank')">💬 Join</button>
       </div>
 
       <!-- Currency Checker Card -->
-      <div class="card" style="margin-top: 15px;">
+      <div class="card">
         <p style="margin: 0; font-weight: 600;">Check your count now!</p>
         
         <div class="stats-grid">
